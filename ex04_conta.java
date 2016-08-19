@@ -1,6 +1,6 @@
 class Conta {
 	int numero;
-	String titular;
+	Pessoa titular;
 	double saldo;
 	int agencia;
 
@@ -20,15 +20,25 @@ class Conta {
 		destino.saldo += valor;
 	}
 };
-
+class Pessoa {
+	String nome;
+	String cpf;
+	String dataNascimento;
+}
 class Programa {
 
 	public static void main(String[] args) {
 		Conta mauricio = new Conta();
 		mauricio.numero = 123;
 		mauricio.saldo = 800.0;
-		mauricio.titular = "Mauricio Aniche";
 		mauricio.agencia = 842;
+
+		mauricio.titular = new Pessoa();
+		mauricio.titular.nome = "Mauricio Aniche";
+		mauricio.titular.cpf = "123456789";
+		mauricio.titular.dataNascimento = "10\10\1975";
+
+		System.out.println(mauricio.titular.nome);
 
 		mauricio.deposita(100.0);
 		mauricio.saca(5000.0);
